@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<div id="element1"></div>
+
+<script type="text/javascript" src="../js/react.js"></script>
+<script type="text/javascript" src="../js/react-dom.js"></script>
+<script type="text/javascript" src="../js/babel.min.js"></script>
+<script type="text/babel">
+
+    var names = ['A', 'B', 'C'];
+
+    let  element = <h1>
+        {
+            names.map((item, index) => {
+                return <li key={index}>{item}</li>
+            })
+        }
+        </h1>;
+
+    let e1 = <h1>
+
+    })
+    </h1>
+    ReactDOM.render(element,document.getElementById('element1'))
+
+
+</script>
+
+</body>
+</html>

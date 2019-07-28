@@ -1,0 +1,8 @@
+<component name="ArtifactManager">
+  <artifact type="war" name="HellowWorld:war">
+    <output-path>$PROJECT_DIR$/../HellowWorld/target</output-path>
+    <root id="archive" name="HellowWorld.war">
+      <element id="artifact" artifact-name="HellowWorld:war exploded" />
+    </root>
+  </artifact>
+</component>

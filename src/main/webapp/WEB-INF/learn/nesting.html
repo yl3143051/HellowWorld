@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<div id="element1"></div>
+
+<script type="text/javascript" src="../js/react.js"></script>
+<script type="text/javascript" src="../js/react-dom.js"></script>
+<script type="text/javascript" src="../js/babel.min.js"></script>
+<script type="text/javascript" src="https://cdn.bootcss.com/prop-types/15.7.2/prop-types.js"></script>
+<script type="text/babel">
+
+    let arr = ['a','b','c'];
+
+    class App extends React.Component {
+        render() {
+            let {arr} = this.props;
+            return (
+                <div>
+                    {
+                        arr.map((item, index) => {
+                            return <Welcome key={index} item={item}/>
+                        })
+                    }
+                </div>
+            )
+        }
+    }
+//    function Welcome(props) {
+//        return <h1>welcome {props.item}</h1>
+//    }
+
+    class Welcome extends React.Component {
+        render () {
+            return <h1>hello {this.props.item}</h1>
+        }
+    }
+
+
+    ReactDOM.render(<App arr={arr}/>,document.getElementById('element1'))
+
+
+</script>
+
+</body>
+</html>

@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<div id="element1"></div>
+
+<script type="text/javascript" src="../js/react.js"></script>
+<script type="text/javascript" src="../js/react-dom.js"></script>
+<script type="text/javascript" src="../js/babel.min.js"></script>
+<script type="text/javascript" src="https://cdn.bootcss.com/prop-types/15.7.2/prop-types.js"></script>
+<script type="text/babel">
+
+    let arr = ['a','b','c'];
+
+    class App extends React.Component {
+        constructor (props) {
+            super(props);
+            this.handlerClick = this.handlerClick.bind(this);
+        }
+        handlerClick () {
+            let msg = this.refs.msg.value;
+            alert(msg)
+        }
+        handlerBlur (event) {
+            alert(event.target.value)
+        }
+        render() {
+            return (
+                <div>
+                    <input ref="msg" type="text"/>
+                    <button onClick={this.handlerClick}>获取数据</button>
+                    <input type="text" onBlur={this.handlerBlur}/>
+                </div>
+            )
+        }
+    }
+//    function Welcome(props) {
+//        return <h1>welcome {props.item}</h1>
+//    }
+
+    class Welcome extends React.Component {
+        render () {
+            return <h1>hello {this.props.item}</h1>
+        }
+    }
+
+
+    ReactDOM.render(<App />,document.getElementById('element1'))
+
+
+</script>
+
+</body>
+</html>

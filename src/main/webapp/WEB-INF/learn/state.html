@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<div id="element"></div>
+
+<script type="text/javascript" src="../js/react.js"></script>
+<script type="text/javascript" src="../js/react-dom.js"></script>
+<script type="text/javascript" src="../js/babel.min.js"></script>
+<script type="text/javascript" src="https://cdn.bootcss.com/prop-types/15.7.2/prop-types.js"></script>
+<script type="text/babel">
+
+
+    class IsLike extends React.Component {
+        constructor (props) {
+            super(props);
+            this.state = {
+                isLike : false
+            }
+            this.changeLike = this.changeLike.bind(this);
+        }
+        changeLike () {
+            this.setState({
+                isLike : !this.state.isLike
+            })
+        }
+        render () {
+            let isLike = this.state.isLike;
+            let msg = isLike ? '我喜欢你':'你喜欢我';
+            return (
+                <h1 onClick={this.changeLike}>
+                    {msg}
+                </h1>
+            )
+        }
+    }
+
+    ReactDOM.render(<IsLike/>, document.getElementById('element'));
+
+</script>
+
+</body>
+</html>

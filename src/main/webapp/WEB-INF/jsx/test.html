@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<div id="example1"></div>
+<div id="example2"></div>
+
+<script type="text/javascript" src="../js/react.js"></script>
+<script type="text/javascript" src="../js/react-dom.js"></script>
+<script type="text/javascript" src="../js/babel.min.js"></script>
+<script type="text/babel">
+
+    let element1 = React.createElement('h1',{id : 'box1',className : 'box1'},'hello jsx');
+
+    ReactDOM.render(element1, document.getElementById('example1'));
+
+</script>
+
+</body>
+</html>

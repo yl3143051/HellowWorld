@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<div id="element1"></div>
+
+<script type="text/javascript" src="../js/react.js"></script>
+<script type="text/javascript" src="../js/react-dom.js"></script>
+<script type="text/javascript" src="../js/babel.min.js"></script>
+<script type="text/javascript" src="https://cdn.bootcss.com/prop-types/15.7.2/prop-types.js"></script>
+<script type="text/babel">
+
+    let person = {username : 'dd', age : 24, sex : '男'};
+
+    class Person extends React.Component {
+        render() {
+            return (
+                    <ul>
+                        <li>姓名：{this.props.username}</li>
+                        <li>性别：{this.props.sex}</li>
+                        <li>年龄：{this.props.age}</li>
+                    </ul>
+            )
+        }
+    }
+
+    Person.defaultProps = {
+        username : 'dd'
+    }
+
+    Person.propTypes = {
+        username : PropTypes.string.isRequired,
+        sex : PropTypes.string,
+        age : PropTypes.number
+    }
+
+    ReactDOM.render(<Person {...person}/>,document.getElementById('element1'))
+
+
+</script>
+
+</body>
+</html>

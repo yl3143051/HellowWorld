@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>01_HelloWorld</title>
+</head>
+<body>
+
+<div id="container"></div>
+
+<script type="text/javascript" src="../js/react.js"></script>
+<script type="text/javascript" src="../js/react-dom.js"></script>
+<script type="text/javascript" src="../js/babel.min.js"></script>
+<!--<script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>-->
+<script type="text/babel">
+
+    class App extends React.Component {
+        constructor (props) {
+            super(props);
+            this.state = {
+                todos : ['a','b','c']
+            };
+            this.add = this.add.bind(this)
+        }
+        add (obj) {
+            if (!obj.trim()) {
+                alert('nononono');
+                return
+            }
+            let {todos} = this.state;
+            todos.unshift(obj);
+            this.setState({todos});
+        }
+        render () {
+            let {todos} = this.state;
+            return (
+                <div>
+                    <h1>hahahahahaha</h1>
+                    <ShowButton add={this.add} length={todos.length}/>
+                    <ShowList todos={todos}/>
+                </div>
+            )
+        }
+    }
+
+    class ShowButton extends React.Component {
+        constructor (props) {
+            super(props);
+            this.addList = this.addList.bind(this);
+        }
+        addList () {
+            let obj = this.refs.addObj.value;
+            this.props.add(obj)
+            this.refs.addObj.value = '';
+        }
+        render () {
+            return (
+                <div>
+                    <input ref="addObj" type="text"/>
+                    <button onClick={this.addList}>btn #{this.props.length}</button>
+                </div>
+            )
+        }
+    }
+
+    class ShowList extends React.Component {
+        render () {
+            let {todos} = this.props;
+            return (
+                <ul>
+                    {
+                        todos.map((item,index) => {
+                            return <li key={index}>{item}</li>
+                        })
+                    }
+                </ul>
+            )
+        }
+    }
+
+    ReactDOM.render(<App/>, document.getElementById('container'));
+
+
+</script>
+
+
+</body>
+</html>
